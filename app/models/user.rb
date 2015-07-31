@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  has_many :comments, through: :posts
+  has_many :comments, through: :posts, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }
 
