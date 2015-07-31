@@ -2,7 +2,8 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup 
-    @post = Post.new(title: 'Title', content: 'Content', post_date: Time.now)
+    @user = User.create(username: 'foobar', email: 'foobar@example.com')
+    @post = Post.new(user_id: @user.id, title: 'Title', content: 'Content', post_date: Time.now)
   end
 
   test 'is initially valid' do 
